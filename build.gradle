@@ -6,7 +6,7 @@ plugins {
 	id "com.github.breadmoirai.github-release" version "2.2.12"
 }
 
-group = 'com.example'
+group = 'com.leandrorosa'
 version = '0.0.0-SNAPSHOT'
 gitVersioning.apply {
 	refs {
@@ -40,5 +40,5 @@ tasks.named('test') {
 }
 
 githubRelease {
-	token "$System.env.GITHUB_TOKEN"
+	token System.getenv('GITHUB_TOKEN')
 }
