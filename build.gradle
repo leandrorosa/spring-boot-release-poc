@@ -4,6 +4,8 @@ plugins {
 	id 'java'
 	id 'me.qoomon.git-versioning' version '5.1.1'
 	id "com.github.breadmoirai.github-release" version "2.2.12"
+	id 'org.jreleaser' version '1.0.0-M3'
+
 }
 
 group = 'com.leandrorosa'
@@ -40,5 +42,15 @@ tasks.named('test') {
 }
 
 githubRelease {
-	token System.getenv('GITHUB_TOKEN')
+	token "$System.env.GITHUB_TOKEN"
+}
+
+jreleaser {
+	release {
+		github {
+			enabled = true
+			token "$System.env.GITHUB_TOKEN"
+			skipTag = true
+		}
+	}
 }
