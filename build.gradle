@@ -49,7 +49,7 @@ jreleaser {
 	release {
 		github {
 			enabled = true
-			token "$System.env.GITHUB_TOKEN"
+			token = "$System.env.GITHUB_TOKEN"
 			skipTag = true
 		}
 	}
